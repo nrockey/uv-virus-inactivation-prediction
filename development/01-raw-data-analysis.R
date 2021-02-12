@@ -130,7 +130,6 @@ sys_review_data_summ_class = sys_review_data %>%
   summarize( n = n(), .groups = 'drop')
 
 # Systematic review without outliers (used in Figure 1).
-# What are the outliers?
 outliers = sys_review_data %>%
   group_by(virus) %>%
   mutate( outlier = is_outlier(k) ) %>%
@@ -170,6 +169,6 @@ save(id_vars, dep_vars, k_var, k_bar, model_data_final, sys_review_data_se, sys_
      file = "data/uv-inact-meta-k-bar.RData")
 
 # Data to include in Figure 1 (this includes all experimental rate constants
-# from systematic review except for the four outliers).
-write.csv(sys_review_data_no_outliers, 'csv-outputs/fig-1.csv')
+# from systematic review except for the outliers).
+write.csv(sys_review_data_no_outliers, 'development/csv-outputs/fig-1.csv')
 
