@@ -15,7 +15,7 @@ library(tidyverse); library(randomForest); library(xgboost)
 
 # SET WORKING DIRECTORY---------------------------------------------------------
 
-setwd("~/uv-virus-inactivation-prediction/")
+setwd('~/uv-virus-inactivation-prediction/')
 
 #DATA INPUT---------------------------------------------------------------------
 
