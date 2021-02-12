@@ -12,7 +12,7 @@ library(stringr); library(tibble)
 
 # SET WORKING DIRECTORY---------------------------------------------------------
 
-setwd("~/uv-virus-inactivation-prediction/")
+setwd('~/uv-virus-inactivation-prediction/')
 
 # DATA INPUT--------------------------------------------------------------------
 
@@ -185,5 +185,5 @@ pred_data$host = as.character(pred_data$host)
 # DATA OUTPUT-------------------------------------------------------------------
 
 # Outputs data as an R file.
-save(pred_data, file = "data/virus-predict-data.RData")
+save(pred_data, file = 'data/virus-predict-data.RData')
 
