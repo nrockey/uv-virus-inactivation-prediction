@@ -14,15 +14,15 @@ library(tidyverse); library(xgboost); library(tibble)
 
 # SET WORKING DIRECTORY---------------------------------------------------------
 
-setwd("~/uv-virus-inactivation-prediction/")
+setwd('~/uv-virus-inactivation-prediction/')
 
 #DATA INPUT---------------------------------------------------------------------
 # ACTION ITEM: Update which of these lines are and are not commented to develop
 # model with different data.
 # Loads in 'id_vars, dep_vars, ind_vars, train_data, n_virus, n_exp.'
-# load("data/uv-inact-model-data-inputs-all.RData")
-# foo = load("data/uv-inact-model-data-inputs-dsdna.RData")
-load("data/uv-inact-model-data-inputs-plusssrna.RData")
+# load('data/uv-inact-model-data-inputs-all.RData')
+# foo = load('data/uv-inact-model-data-inputs-dsdna.RData')
+load('data/uv-inact-model-data-inputs-plusssrna.RData')
 
 # FUNCTIONS---------------------------------------------------------------------
 
