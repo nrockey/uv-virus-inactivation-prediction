@@ -8,12 +8,12 @@
 
 # SET WORKING DIRECTORY---------------------------------------------------------
 
-setwd("~/uv-virus-inactivation-prediction/")
+setwd('~/uv-virus-inactivation-prediction/')
 
 # DATA INPUT--------------------------------------------------------------------
 
 # Loads in 'tot_data.'
-load("data/virus-inact-data.RData")
+load('data/virus-inact-data.RData')
 
 # DATA MANIPULATION-------------------------------------------------------------
 
@@ -296,5 +296,5 @@ data_subset = 'ssrna'
 # Generates file with ssrna viruses for model training.
 save(id_vars, dep_vars, dep_error, weight, ind_vars, class_vars, cat_vars,
      train_data, n_virus, data_subset,
-     file = "data/uv-inact-model-data-inputs-ssrna.RData")
+     file = 'data/uv-inact-model-data-inputs-ssrna.RData')
 
