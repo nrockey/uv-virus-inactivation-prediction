@@ -7,12 +7,12 @@
 
 # SET WORKING DIRECTORY---------------------------------------------------------
 
-setwd("~/uv-virus-inactivation-prediction/")
+setwd('~/uv-virus-inactivation-prediction/')
 
 #DATA INPUT---------------------------------------------------------------------
 
 # Loads in 'pred_data.'
-load("data/virus-predict-data.RData")
+load('data/virus-predict-data.RData')
 
 # DATA MANIPULATION-------------------------------------------------------------
 
@@ -54,5 +54,5 @@ save(id_vars_pred,
      cat_vars_pred,
      class_vars_pred,
      pred_data,
-     file = "data/uv-inact-model-predict-inputs.RData"
+     file = 'data/uv-inact-model-predict-inputs.RData'
     )
