@@ -51,7 +51,7 @@ for (class in names(pred_mat)) {
 # OUTPUT------------------------------------------------------------------------
 
 # Creates an R Data file name for prediction data.
-file_pred = sprintf('prediction/prediction-results/xgb/xgb-predict-%s.RData', data_subset)
+file_pred = sprintf('prediction/prediction-results/xgb-predict-%s.RData', data_subset)
 
 # Saves an R Data file with the predicted data from the elnt model.
 save(pred_mat, data_subset, file = file_pred)
