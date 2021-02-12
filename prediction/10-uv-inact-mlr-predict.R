@@ -19,8 +19,8 @@ bar = load("data/uv-inact-model-predict-inputs.RData")
 # ACTION ITEM: Update which of these lines are and are not commented to predict
 # inactivation using different developed models.
 # Loads in mlr_opt models depending on the virus subset used for training.
-foo = load("development/development-results/mlr/mlr-opt-rep-TRUE-host-TRUE-dsdna.RData")
-# load("development/development-results/mlr/mlr-opt-rep-FALSE-host-FALSE-plusssrna.RData")
+# foo = load("development/development-results/mlr/mlr-opt-rep-TRUE-host-TRUE-dsdna.RData")
+load("development/development-results/mlr/mlr-opt-rep-FALSE-host-FALSE-plusssrna.RData")
 
 # VARIABLE SET-UP---------------------------------------------------------------
 
@@ -30,16 +30,6 @@ pred_id = pred_data[, id_vars_pred]
 # Removes all class_vars from prediction set in prediction set without class_vars_pred.
 pred_X_no_cat = model.matrix( ~ ., pred_data[, setdiff(ind_vars_pred, cat_vars_pred)] 
 )[, -1]
-
-# Creates the prediction matrix including only class_vars_pred.
-# pred_data$repair = factor(pred_data$repair, levels = c('0', '1'))
-# pred_data$host = factor(pred_data$host, levels = c('0', '2'))
-
-# N: Work here!!
-#! Main error is that "type" is included in cat_vars_pred but shouldn't
-#  be b/c it is not part of the mlr_opt model (for dsdna viruses no, but for
-# all viruses yes, it is!!)
-# cat_vars_pred = setdiff(cat_vars_pred, 'type')
 
 if ( !is.null(cat_vars_pred) ) {
   pred_X_cat = 
