@@ -10,7 +10,7 @@
 library(tidyverse); library(xgboost)
 
 # SET WORKING DIRECTORY---------------------------------------------------------
-setwd("~/uv-virus-inactivation-prediction/")
+setwd('~/uv-virus-inactivation-prediction/')
 
 #DATA INPUT---------------------------------------------------------------------
 
@@ -20,9 +20,7 @@ load("data/uv-inact-model-predict-inputs.RData")
 # ACTION ITEM: Update which of these lines are and are not commented to predict
 # inactivation using different developed models.
 # Loads in xgb_opt models depending on the virus subset used for training.
-# load("development/development-results/xgb/xgb-opt-all.RData")
-load("development-development-results/xgb/xgb-opt-dsdna.RData")
-# load("development/development-results/xgb/xgb-opt-plusssrna.RData")
+load("development/development-results/xgb/xgb-opt-dsdna.RData")
 
 # VARIABLE SET-UP---------------------------------------------------------------
 
