@@ -9,21 +9,17 @@
 library(tidyverse); library(glmnet)
 
 # SET WORKING DIRECTORY---------------------------------------------------------
-setwd("~/Documents/GitHub/uv-inactivation-model")
+setwd('~/Documents/GitHub/uv-inactivation-model')
 
 # DATA INPUT--------------------------------------------------------------------
 
 # Loads in 'id_vars, ind_vars, dep_vars, class_vars, pred_data.'
-# load("data/uv-inact-model-predict-inputs.RData")
-bar = load("data/uv-inact-model-predict-inputs-test.RData")
+bar = load("data/uv-inact-model-predict-inputs.RData")
 
 # ACTION ITEM: Update which of these lines are and are not commented to predict
 # inactivation using different developed models.
 # Loads in mlr_opt models depending on the virus subset used for training.
-# load("development/development-results/mlr/mlr-opt-rep-TRUE-host-TRUE-all.RData")
-# load("development/development-results/mlr/mlr-opt-rep-FALSE-host-FALSE-all.RData")
 foo = load("development/development-results/mlr/mlr-opt-rep-TRUE-host-TRUE-dsdna.RData")
-# load("development/development-results/mlr/mlr-opt-rep-FALSE-host-FALSE-dsdna.RData")
 # load("development/development-results/mlr/mlr-opt-rep-FALSE-host-FALSE-plusssrna.RData")
 
 # VARIABLE SET-UP---------------------------------------------------------------
@@ -35,16 +31,15 @@ pred_id = pred_data[, id_vars_pred]
 pred_X_no_cat = model.matrix( ~ ., pred_data[, setdiff(ind_vars_pred, cat_vars_pred)] 
 )[, -1]
 
-# N: Work here!!
 # Creates the prediction matrix including only class_vars_pred.
-#! Set the levels for the prediction variables:
-pred_data$repair = factor(pred_data$repair, levels = c('0', '1'))
-pred_data$host = factor(pred_data$host, levels = c('0', '2'))
+# pred_data$repair = factor(pred_data$repair, levels = c('0', '1'))
+# pred_data$host = factor(pred_data$host, levels = c('0', '2'))
 
 # N: Work here!!
 #! Main error is that "type" is included in cat_vars_pred but shouldn't
-#  be b/c it is not part of the mlr_opt model. 
-cat_vars_pred = setdiff(cat_vars_pred, 'type')
+#  be b/c it is not part of the mlr_opt model (for dsdna viruses no, but for
+# all viruses yes, it is!!)
+# cat_vars_pred = setdiff(cat_vars_pred, 'type')
 
 if ( !is.null(cat_vars_pred) ) {
   pred_X_cat = 
@@ -72,8 +67,6 @@ for (class in names(pred_mat)) {
   # Calculate pca values for independent vars.
   pred_X_pca = pred_X_std %*% mlr_opt[[class]]$loadX
   
-  # N: 10/13/20 - How to make this so that if there are no variables in here that are different,
-  # it won't set off an error...
   # Make the class prediction set the same as what is in the model development set.
   pred_X_cat_subset = pred_X_cat[ , mlr_opt[[class]]$cat_vars]
   
@@ -89,7 +82,7 @@ for (class in names(pred_mat)) {
 # OUTPUT------------------------------------------------------------------------
 
 # Creates an R Data file name for prediction data.
-file_pred = sprintf('prediction/prediction-results/mlr/mlr-predict-rep-%s-host-%s-%s.RData',
+file_pred = sprintf('prediction/prediction-results/mlr-predict-rep-%s-host-%s-%s.RData',
                     include_repair, include_host, data_subset)
 
 # Saves an R Data file with the predicted data from the mlr model.
