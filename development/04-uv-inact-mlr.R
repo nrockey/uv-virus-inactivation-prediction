@@ -15,12 +15,12 @@ library(tidyverse); library(glmnet)
 
 # SET WORKING DIRECTORY---------------------------------------------------------
 
-setwd("~/uv-virus-inactivation-prediction/")
+setwd('~/uv-virus-inactivation-prediction/')
 
 # FUNCTIONS---------------------------------------------------------------------
 
 # Sources the function file.
-source("development/mlr-funcs.R")
+source('development/mlr-funcs.R')
 
 ord_mat = function(x, col) {
   # inputs: x - a matrix
@@ -31,15 +31,15 @@ ord_mat = function(x, col) {
 
 # DATA INPUTS-------------------------------------------------------------------
 
-# N: Currently manually toggling through raw data to load. Could make this 
-# automated once everything is good to go.
+# Manually toggle which RData file should be loaded to use the desired virus
+# data set to use in model training/validation.
 
 # ACTION ITEM: Update which of these lines are and are not commented to develop
-# model with different data.
+# model with different data sets.
 # Loads in 'id_vars, dep_vars, ind_vars, train_data, n_virus, n_exp.'
-# foo_bar = load("data/uv-inact-model-data-inputs-all.RData")
-# load("data/uv-inact-model-data-inputs-dsdna.RData")
-foo = load("data/uv-inact-model-data-inputs-plusssrna.RData")
+# foo_bar = load('data/uv-inact-model-data-inputs-all.RData')
+# load('data/uv-inact-model-data-inputs-dsdna.RData')
+foo = load('data/uv-inact-model-data-inputs-plusssrna.RData')
 
 # DATA MANIPULATION-------------------------------------------------------------
 
