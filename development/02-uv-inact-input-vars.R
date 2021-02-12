@@ -12,17 +12,17 @@ library(stringr); library(tibble); library(mefa4)
 
 # SET WORKING DIRECTORY---------------------------------------------------------
 
-setwd("~/uv-virus-inactivation-prediction/")
+setwd('~/uv-virus-inactivation-prediction/')
 
 # DATA INPUT--------------------------------------------------------------------
 
 # Loads in 'seq_extract' matrix containing all virus sequence information.
-load("data/virus-seq-attributes.RData")
+load('data/virus-seq-attributes.RData')
 
 # Reads in csv file with viruses to use in modeling work, along with
 # inactivation rates (dependent variable) and additional independent variables
 # (genome repair ability, virus genome class) beyond sequence info.
-adnl_virus_vars = read.csv("data/adnl-virus-vars.csv", header = TRUE, sep = ",",
+adnl_virus_vars = read.csv('data/adnl-virus-vars.csv', header = TRUE, sep = ",",
                            stringsAsFactors = FALSE
                            )
 
@@ -244,5 +244,5 @@ tot_data$host = as.character(tot_data$host)
 # DATA OUTPUT-------------------------------------------------------------------
 
 # Outputs data as an R file.
-save(tot_data, file = "data/virus-inact-data.RData")
+save(tot_data, file = 'data/virus-inact-data.RData')
 
