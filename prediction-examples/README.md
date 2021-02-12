@@ -2,7 +2,7 @@
 
 # 'prediction-examples' folder
 
-# PLEASE CHECK BACK SOON! Files in this folder is still under construction!
+# PLEASE CHECK BACK SOON! Files in this folder are still under construction!
 
 # The purpose of this folder is to provide examples of how to predict the UV inactivation rate constants of dsDNA and/or (+) ssRNA viruses of interest. 
 
