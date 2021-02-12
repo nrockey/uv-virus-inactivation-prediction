@@ -14,7 +14,7 @@ library(tidyverse)
 
 # SET WORKING DIRECTORY---------------------------------------------------------
 
-setwd("~/uv-virus-inactivation-prediction/")
+setwd('~/uv-virus-inactivation-prediction/')
 
 # DATA INPUT--------------------------------------------------------------------
 
@@ -166,7 +166,7 @@ names(k_bar) = names(k_var) = model_data_final_summ_virus$virus
 
 # OUTPUT------------------------------------------------------------------------
 save(id_vars, dep_vars, k_var, k_bar, model_data_final, sys_review_data_se, sys_review_data_no_outliers,
-     file = "data/uv-inact-meta-k-bar.RData")
+     file = 'data/uv-inact-meta-k-bar.RData')
 
 # Data to include in Figure 1 (this includes all experimental rate constants
 # from systematic review except for the outliers).
