@@ -1,60 +1,26 @@
 # uv-virus-inactivation-prediction
 
-#The objective of this work is to identify a model that most accurately predicts the UV inactivation of different viruses.
+# The objective of this work is to identify a model that most accurately predicts the UV inactivation of different viruses.
 
-# Files
+# The folders included in this repository contain raw data, R files, and results from model development and prediction that are described in our study: Rockey, Nicole C., Henderson, James B., Chin, Kaitlyn, Raskin, Lutgarde, Wigginton, Krista R., "Predictive Modeling of Virus Inactivation by UV". Environmental Science & Technology, 2021.
 
-# 00-uv-inact-sequence-attributes.R
-Defines virus genome sequence information.
+# Four of these folders ('data', 'sequence-set-up', 'development', 'prediction') contain sets of data, R files, and results that were used to obtain publication findings. These files have been revised from their original versions to improve readability and workflow.
 
-# 01-raw-data-analysis.R
-Reads in rate constants, standard errors (if available), viruses, and study ids
-from the systematic review. Removes outliers from the data set, determines k-bar
-and weights to use in model development. Defines a final model data set that
-removes viruses with no standard error values. Finally, removes viruses with no
-available full-length genome information, and removes viruses that have unique
-categorical variable values that would not work in loocv.
+# A fifth folder ('prediction-examples') contains example code and associated data files that can be used to predict the UV rate constant(s) of (a) virus(es) of interest.
 
-# 02-uv-inact-input-vars.R
-Reads in training/validation virus set and defines independent variables using
-information from 00 and 01.
+# Folders
 
-# 03-uv-inact-model-data-inputs.R
-Creates training data sets to include in model training/validation with virus
-information from 02.
+# 'data'
+This folder contains raw data that was used in model development and prediction, including txt files with genome sequence information and csv files with additional virus attributes such as virus class (e.g., dsdna, ssrna, etc.).
 
-# 04-uv-inact-mlr.R
-Generates multiple linear regression models using virus genome and biological
-function characteristics as predictors. Model accuracy is assessed using LOOCV
-on the training/validation set.
+# 'sequence-set-up'
+This folder contains an R file for reading in genome sequences from specified txt files included in the 'data' folder and collecting genome sequence information to be used in modeling work.
 
-# 05-uv-inact-elastic-net.R
-Uses glmnet to make a model for predicting UV virus inactivation rates. Model
-accuracy is assessed using LOOCV on the training/validation set.
+# 'development'
+This folder contains R files with code used to set up virus data sets, develop models using the data, and evaluate model performance. The folder also contains results (csv and RData files) generated from the code to easily access findings.
 
-# 06-uv-inact-boosted-trees.R
-Uses xgboost to make a model for predicting UV virus inactivation rates.
-Models are assessed using LOOCV on the training/validation set.
+# 'prediction'
+This folder contains R files with code used to set up virus prediction data sets and predict inactivation of those viruses. The folder also contains results (csv and RData files) generated from the code to easily access findings.
 
-# 07-uv-inact-rand-forest.R
-Uses xgboost (with settings similar to those in randomForest) to make a model
-for predicting UV virus inactivation rates. Models are assessed using LOOCV on the training/validation set.
-
-# 08-uv-inact-predict-vars.R
-Reads in prediction virus set and defines independent variables.
-
-# 09-uv-inact-model-predict-inputs.R
-Creates a prediction data set with virus information from 08.
-
-# 10-uv-inact-mlr-predict.R
-Uses the optimized mlr model from 04 to predict virus inactivation of the
-viruses read in from 08.
-
-# 12-uv-inact-elnt-predict.R
-Uses the optimized elastic net model from 05 to predict virus inactivation of the viruses read in from 08.
-
-# 12-uv-inact-xgb-predict.R
-Uses the optimized boosted trees model from 06 to predict virus inactivation of the viruses read in from 08.
-
-# 13-uv-inact-rf-predict.R
-Uses the optimized random forests model from 07 to predict virus inactivation of the viruses read in from 08.
+# 'prediction-examples'
+This folder contains example R files and input data for predicting the UV inactivation rate constant for viruses of interest.
