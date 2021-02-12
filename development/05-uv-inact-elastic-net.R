@@ -134,8 +134,6 @@ elnt = function(alphas, virus_id, X, y, wt) {
   
   elnt_info = vector(length = 3, mode = 'list')
   
-  #! J - I'd suggest using a named list, e.g. below, to make this easier
-  #      to remember
   elnt_info[['lambda_list']] = lambda_list
   elnt_info[['n_lambda']] = n_lambda
   elnt_info[['k_elnt_list']] = k_elnt_list
