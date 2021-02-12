@@ -23,4 +23,4 @@ This folder contains R files with code used to set up virus data sets, develop m
 This folder contains R files with code used to set up virus prediction data sets and predict inactivation of those viruses. The folder also contains results (csv and RData files) generated from the code to easily access findings.
 
 # 'prediction-examples'
-This folder contains example R files and input data for predicting the UV inactivation rate constant for viruses of interest.
+This folder contains example R files and input data for predicting the UV inactivation rate constants for viruses of interest.
