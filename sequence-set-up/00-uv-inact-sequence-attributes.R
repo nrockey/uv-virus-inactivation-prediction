@@ -12,7 +12,7 @@ library(stringr)
 # SET WORKING DIRECTORY---------------------------------------------------------
 
 # Set the working directory.
-setwd("~/uv-virus-inactivation-prediction/data")
+setwd('~/uv-virus-inactivation-prediction/data')
 
 # DATA INPUT--------------------------------------------------------------------
 
@@ -291,5 +291,5 @@ seq_extract = seq_extract[-c(which(rownames(seq_extract) == "reo3-l2"),
 # DATA OUTPUT-------------------------------------------------------------------
 
 # Outputs data as an R file.
-save(seq_extract, file = "virus-seq-attributes.RData")
+save(seq_extract, file = 'virus-seq-attributes.RData')
 
